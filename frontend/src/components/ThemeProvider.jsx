@@ -1,15 +1,15 @@
+import { ThemeProvider as MuiThemeProvider, CssBaseline } from "@mui/material"
 import { createTheme } from "@mui/material/styles"
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#6366f1", // Indigo color from the image
+      main: "#6366f1", 
       light: "#818cf8",
       dark: "#4f46e5",
     },
     secondary: {
-      main: "#10b981", // Green color from the image
-      light: "#34d399",
+      main: "#10b981", 
       dark: "#059669",
     },
     background: {
@@ -98,4 +98,12 @@ const theme = createTheme({
   },
 })
 
-export default theme
+
+export function ThemeProvider({ children }) {
+  return (
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </MuiThemeProvider>
+  )
+}

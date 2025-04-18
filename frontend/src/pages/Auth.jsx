@@ -20,7 +20,6 @@ import {
     Lock,
     Person,
 } from "@mui/icons-material";
-import { ThemeProvider } from "../components/theme-provider";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
@@ -142,9 +141,7 @@ export default function Auth() {
                 }));
 
                 setAuthSuccess("Login successful!");
-                setTimeout(() => {
-                    navigate("/dashboard");
-                }, 1000);
+                navigate("/app/dashboard");
             } else {
                 // Register request
                 const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
@@ -175,7 +172,6 @@ export default function Auth() {
     };
 
     return (
-        <ThemeProvider>
             <Box
                 sx={{
                     display: "flex",
@@ -397,6 +393,5 @@ export default function Auth() {
                     </form>
                 </Paper>
             </Box>
-        </ThemeProvider>
     );
 }
